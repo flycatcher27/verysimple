@@ -20,11 +20,29 @@
     .grid{display:grid;gap:12px}
     @media(min-width:640px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
     .card{border:1px solid var(--line);border-radius:var(--radius);padding:12px;background:#101010}
-    img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#111}
+    img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#111;cursor:pointer}
     .note{font-size:14px;color:var(--muted);margin-top:6px}
     .pill{display:inline-block;font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:#bbb}
     .list{list-style:disc;padding-left:18px}
     footer{border-top:1px solid var(--line);padding:18px var(--pad) 28px;color:var(--muted)}
+
+    /* Lightbox styles */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #000;
+    }
   </style>
 </head>
 <body>
@@ -99,12 +117,6 @@
       <h2>Natural History (Bird Sound)</h2>
       <p class="muted">Field notes, checklists, and recordings.</p>
       <p><a class="pill" href="docs/Nature%20Sounds.pdf">Nature Sounds (PDF)</a></p>
-      <!-- Add audio files to media/audio and point to them here when ready -->
-      <!--
-      <audio controls preload="none" style="width:100%;margin-top:8px">
-        <source src="media/audio/barbet-dawn.mp3" type="audio/mpeg">
-      </audio>
-      -->
     </section>
 
     <!-- TREKKING -->
@@ -120,10 +132,33 @@
 
   <footer class="wrap">
     © <span id="y"></span> Arvind
-    <div class="muted">Built as a single static HTML file. No frameworks.</div>
+    <div class="muted">Built as a single static HTML file. Lightbox enabled.</div>
   </footer>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <!-- Lightbox container -->
+  <div id="lightbox">
+    <img src="" alt="Enlarged photo">
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('figure img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = "";
+    });
+  </script>
 </body>
 </html>
-
