@@ -43,6 +43,14 @@
       box-shadow: 0 0 20px #000;
     }
     body.lb-open { overflow: hidden; }
+    /* Fix lightbox aspect ratio */
+    #lightbox img{
+      width:auto !important;
+      height:auto !important;
+      max-width:90vw;
+      max-height:90vh;
+      object-fit:contain;
+    }
   </style>
 </head>
 <body>
