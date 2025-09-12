@@ -1,129 +1,44 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arvind — Photography • Natural History • Trekking</title>
-  <meta name="description" content="Ultra-fast, no-JS site for 4×5 photography, natural history notes, and trekking.">
-  <style>
-    :root { --bg:#0b0b0b; --fg:#f2f2f2; --muted:#a8a8a8; --line:#1f1f1f; --link:#9fd3ff; --max:1000px; --pad:14px; --radius:12px; }
-    html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
-    body{margin:0;font:16px/1.5 system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--fg)}
-    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max);margin:0 auto;padding:20px var(--pad)}
-    header{border-bottom:1px solid var(--line)}
-    h1{font-size:24px;margin:0 0 6px}.muted{color:var(--muted)}
-    nav{position:sticky;top:0;background:#0b0b0bea;border-bottom:1px solid var(--line);z-index:10}
-    .tabs{display:flex;gap:8px;overflow:auto;padding:8px var(--pad)}
-    .tab{padding:6px 10px;border:1px solid var(--line);border-radius:9px;color:#ddd;white-space:nowrap}
-    section{border-top:1px solid var(--line);padding:18px var(--pad)}
-    .grid{display:grid;gap:12px}
-    @media(min-width:640px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    .card{border:1px solid var(--line);border-radius:var(--radius);padding:12px;background:#101010}
-    img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#111;cursor:pointer}
-    .note{font-size:14px;color:var(--muted);margin-top:6px}
-    .pill{display:inline-block;font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:#bbb}
-    .list{list-style:disc;padding-left:18px}
-    footer{border-top:1px solid var(--line);padding:18px var(--pad) 28px;color:var(--muted)}
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arvind — Themes</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<header class="wrap">
+  <div class="muted">Arvind</div>
+  <h1>Photography Themes</h1>
+  <p class="muted">Pick a theme to view its gallery.</p>
+</header>
 
-    /* Lightbox */
-    #lightbox {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.92);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      flex-direction: column;
-      padding: 2vh;
-    }
-    #lightbox img {
-      width:auto !important;
-      height:auto !important;
-      max-width:90vw;
-      max-height:85vh;
-      object-fit:contain;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #000;
-    }
-    #lightbox button {
-      margin-top: 10px;
-      background: #222;
-      color: #eee;
-      border: 1px solid #555;
-      border-radius: 6px;
-      padding: 6px 12px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    #lightbox button:hover { background:#333; }
-    body.lb-open { overflow:hidden; }
-  </style>
-</head>
-<body>
-  <header class="wrap">
-    <div class="muted">Arvind</div>
-    <h1>Photography • Natural History • Trekking</h1>
-    <p class="muted">Ultra-fast static site with lightbox.</p>
-  </header>
+<main class="wrap">
+  <section>
+    <div class="grid cols-3">
+      <!-- Trees -->
+      <a class="card" href="themes/trees.html">
+        <img src="media/photography/Trees/2013_Dec-1-135.jpg" alt="Trees cover" loading="lazy">
+        <div class="body"><strong>Trees</strong><div class="muted">7 photos</div></div>
+      </a>
 
-  <nav>
-    <div class="tabs wrap">
-      <a class="tab" href="#photography">Photography</a>
-      <a class="tab" href="#natural-history">Natural History</a>
-      <a class="tab" href="#trekking">Trekking</a>
+      <!-- CityLife -->
+      <a class="card" href="themes/citylife.html">
+        <img src="media/photography/CityLife/2012_Nov_1-039_72dpi.jpg" alt="CityLife cover" loading="lazy">
+        <div class="body"><strong>CityLife</strong><div class="muted">4 photos</div></div>
+      </a>
+
+      <!-- Landscapes -->
+      <a class="card" href="themes/landscapes.html">
+        <img src="media/photography/Landscapes/2013_Mar-1-070_working-2.jpg" alt="Landscapes cover" loading="lazy">
+        <div class="body"><strong>Landscapes</strong><div class="muted">1 photo</div></div>
+      </a>
     </div>
-  </nav>
+  </section>
 
-  <main>
-    <section id="photography" class="wrap">
-      <h2>Photography (4×5)</h2>
-      <div class="grid cols-3">
-        <figure class="card"><img src="media/photography/CityLife/2012_Nov_1-039_72dpi.jpg" alt="City Life 039"><figcaption class="note">City Life</figcaption></figure>
-        <figure class="card"><img src="media/photography/CityLife/2012_Nov_1-041_72dpi.jpg" alt="City Life 041"><figcaption class="note">City Life</figcaption></figure>
-        <figure class="card"><img src="media/photography/Landscapes/2013_Mar-1-070_working-2.jpg" alt="Landscape 070"><figcaption class="note">Landscapes</figcaption></figure>
-        <figure class="card"><img src="media/photography/Trees/2013_Dec-1-135.jpg" alt="Tree 135"><figcaption class="note">Trees</figcaption></figure>
-        <figure class="card"><img src="media/photography/Trees/2013_Dec-1-130_try3.jpg" alt="Tree 130"><figcaption class="note">Trees</figcaption></figure>
-      </div>
-      <p><a class="pill" href="docs/Photography.pdf">Working Notes (PDF)</a></p>
-    </section>
+  <section>
+    <h2>Notes & References</h2>
+    <p><a class="pill" href="docs/Photography.pdf">Photography Notes (PDF)</a>
+       <a class="pill" href="docs/Nature%20Sounds.pdf">Nature Sounds (PDF)</a></p>
+  </section>
+</main>
 
-    <section id="natural-history" class="wrap">
-      <h2>Natural History</h2>
-      <p><a class="pill" href="docs/Nature%20Sounds.pdf">Nature Sounds (PDF)</a></p>
-    </section>
-
-    <section id="trekking" class="wrap">
-      <h2>Trekking</h2>
-      <ul class="list muted">
-        <li><a href="https://www.natureinfocus.in/travel/guide/ajodhya-hills" target="_blank">Ajodhya Hills</a></li>
-        <li><a href="https://www.deccanherald.com/lifestyle/travel/finding-firefoxes-in-singalila-3238212" target="_blank">Singalila</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <footer class="wrap">© <span id="y"></span> Arvind</footer>
-
-  <div id="lightbox">
-    <img src="" alt="enlarged">
-    <button id="closeBtn">× Close</button>
-  </div>
-
-  <script>
-    document.getElementById('y').textContent=new Date().getFullYear();
-    const lb=document.getElementById('lightbox');
-    const lbImg=lb.querySelector('img');
-    const closeBtn=document.getElementById('closeBtn');
-
-    function openLB(src,alt){lb.style.display='flex';lbImg.src=src;lbImg.alt=alt||'';document.body.classList.add('lb-open');}
-    function closeLB(){lb.style.display='none';lbImg.src='';document.body.classList.remove('lb-open');}
-
-    document.querySelectorAll('figure img').forEach(img=>{
-      img.addEventListener('click',()=>openLB(img.src,img.alt));
-    });
-    closeBtn.addEventListener('click',closeLB);
-    lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
-    window.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();});
-  </script>
-</body>
-</html>
+<footer class="wrap">© <span id="y"></span> Arvind</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body></html>
