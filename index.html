@@ -1,38 +1,129 @@
-<!-- CityLife -->
-<figure class="card">
-  <img loading="lazy"
-       src="media/photography/CityLife/2012_Nov_1-039_72dpi.jpg"
-       alt="City Life — 2012 Nov 1-039">
-  <figcaption class="note">City Life series</figcaption>
-</figure>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arvind — Photography • Natural History • Trekking</title>
+  <meta name="description" content="A super-fast, no-JS personal site for 4×5 photography, natural history notes, and trekking.">
+  <style>
+    :root { --bg:#0b0b0b; --fg:#f2f2f2; --muted:#a8a8a8; --line:#1f1f1f; --link:#9fd3ff; --max:1000px; --pad:14px; --radius:12px; }
+    html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+    body{margin:0;font:16px/1.5 system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--fg)}
+    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:0 auto;padding:20px var(--pad)}
+    header{border-bottom:1px solid var(--line)}
+    h1{font-size:24px;margin:0 0 6px}.muted{color:var(--muted)}
+    nav{position:sticky;top:0;background:#0b0b0bea;border-bottom:1px solid var(--line);z-index:10}
+    .tabs{display:flex;gap:8px;overflow:auto;padding:8px var(--pad)}
+    .tab{padding:6px 10px;border:1px solid var(--line);border-radius:9px;color:#ddd;white-space:nowrap}
+    section{border-top:1px solid var(--line);padding:18px var(--pad)}
+    .grid{display:grid;gap:12px}
+    @media(min-width:640px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{border:1px solid var(--line);border-radius:var(--radius);padding:12px;background:#101010}
+    img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#111}
+    .note{font-size:14px;color:var(--muted);margin-top:6px}
+    .pill{display:inline-block;font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:#bbb}
+    .list{list-style:disc;padding-left:18px}
+    footer{border-top:1px solid var(--line);padding:18px var(--pad) 28px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="muted">Arvind</div>
+    <h1>Photography • Natural History • Trekking</h1>
+    <p class="muted">Ultra-fast static site. No JS.</p>
+  </header>
 
-<figure class="card">
-  <img loading="lazy"
-       src="media/photography/CityLife/2012_Nov_1-041_72dpi.jpg"
-       alt="City Life — 2012 Nov 1-041">
-  <figcaption class="note">City Life series</figcaption>
-</figure>
+  <nav>
+    <div class="tabs wrap">
+      <a class="tab" href="#photography">Photography</a>
+      <a class="tab" href="#natural-history">Natural History</a>
+      <a class="tab" href="#trekking">Trekking</a>
+      <span class="tab" style="margin-left:auto;opacity:.8">Updated: 12 Sep 2025</span>
+    </div>
+  </nav>
 
-<!-- Landscapes -->
-<figure class="card">
-  <img loading="lazy"
-       src="media/photography/Landscapes/2013_Mar-1-070_working-2.jpg"
-       alt="Landscape — 2013 Mar-1-070">
-  <figcaption class="note">Landscapes</figcaption>
-</figure>
+  <main>
+    <!-- PHOTOGRAPHY -->
+    <section id="photography" class="wrap">
+      <h2>Photography (4×5)</h2>
+      <p class="muted">Large-format images and notes.</p>
+      <div class="grid cols-3">
 
-<!-- Trees -->
-<figure class="card">
-  <img loading="lazy"
-       src="media/photography/Trees/2013_Dec-1-135.jpg"
-       alt="Trees — 2013 Dec-1-135">
-  <figcaption class="note">Trees series</figcaption>
-</figure>
+        <!-- CityLife -->
+        <figure class="card">
+          <img loading="lazy"
+               src="media/photography/CityLife/2012_Nov_1-039_72dpi.jpg"
+               alt="City Life — 2012 Nov 1-039">
+          <figcaption class="note">City Life series</figcaption>
+        </figure>
 
-<figure class="card">
-  <img loading="lazy"
-       src="media/photography/Trees/2013_Dec-1-130_try3.jpg"
-       alt="Trees — 2013 Dec-1-130">
-  <figcaption class="note">Trees series</figcaption>
-</figure>
+        <figure class="card">
+          <img loading="lazy"
+               src="media/photography/CityLife/2012_Nov_1-041_72dpi.jpg"
+               alt="City Life — 2012 Nov 1-041">
+          <figcaption class="note">City Life series</figcaption>
+        </figure>
+
+        <!-- Landscapes -->
+        <figure class="card">
+          <img loading="lazy"
+               src="media/photography/Landscapes/2013_Mar-1-070_working-2.jpg"
+               alt="Landscape — 2013 Mar-1-070">
+          <figcaption class="note">Landscapes</figcaption>
+        </figure>
+
+        <!-- Trees -->
+        <figure class="card">
+          <img loading="lazy"
+               src="media/photography/Trees/2013_Dec-1-135.jpg"
+               alt="Trees — 2013 Dec-1-135">
+          <figcaption class="note">Trees series</figcaption>
+        </figure>
+
+        <figure class="card">
+          <img loading="lazy"
+               src="media/photography/Trees/2013_Dec-1-130_try3.jpg"
+               alt="Trees — 2013 Dec-1-130">
+          <figcaption class="note">Trees series</figcaption>
+        </figure>
+
+      </div>
+      <p style="margin-top:10px">
+        <a class="pill" href="docs/Photography.pdf">Working Notes (PDF)</a>
+      </p>
+    </section>
+
+    <!-- NATURAL HISTORY -->
+    <section id="natural-history" class="wrap">
+      <h2>Natural History (Bird Sound)</h2>
+      <p class="muted">Field notes, checklists, and recordings.</p>
+      <p><a class="pill" href="docs/Nature%20Sounds.pdf">Nature Sounds (PDF)</a></p>
+      <!-- Add audio files to media/audio and point to them here when ready -->
+      <!--
+      <audio controls preload="none" style="width:100%;margin-top:8px">
+        <source src="media/audio/barbet-dawn.mp3" type="audio/mpeg">
+      </audio>
+      -->
+    </section>
+
+    <!-- TREKKING -->
+    <section id="trekking" class="wrap">
+      <h2>Trekking</h2>
+      <p class="muted">Routes, packing lists, and references.</p>
+      <ul class="list muted">
+        <li><a href="https://www.natureinfocus.in/travel/guide/ajodhya-hills" target="_blank" rel="noreferrer">Ajodhya Hills — quick nature weekend</a></li>
+        <li><a href="https://www.deccanherald.com/lifestyle/travel/finding-firefoxes-in-singalila-3238212" target="_blank" rel="noreferrer">Singalila — red panda country</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    © <span id="y"></span> Arvind
+    <div class="muted">Built as a single static HTML file. No frameworks.</div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
 
