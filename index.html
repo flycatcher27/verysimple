@@ -28,21 +28,21 @@
 
     /* Lightbox styles */
     #lightbox {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      position: fixed; inset: 0;
       background: rgba(0,0,0,0.9);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 9999;
+      padding: 2vh;
     }
     #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 90vw;
+      max-height: 90vh;
       border-radius: 10px;
       box-shadow: 0 0 20px #000;
     }
+    body.lb-open { overflow: hidden; }
   </style>
 </head>
 <body>
@@ -136,28 +136,40 @@
   </footer>
 
   <!-- Lightbox container -->
-  <div id="lightbox">
+  <div id="lightbox" aria-hidden="true">
     <img src="" alt="Enlarged photo">
   </div>
 
   <!-- Scripts -->
   <script>
-    document.getElementById('y').textContent=new Date().getFullYear();
+    // stamp year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('img');
+    // Lightbox wiring after DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = lightbox.querySelector('img');
 
-    document.querySelectorAll('figure img').forEach(img => {
-      img.addEventListener('click', () => {
+      function openLB(src, alt) {
         lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-      });
-    });
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        document.body.classList.add('lb-open');
+      }
+      function closeLB() {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+        document.body.classList.remove('lb-open');
+      }
 
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-      lightboxImg.src = "";
+      document.querySelectorAll('figure img').forEach(img => {
+        img.addEventListener('click', () => openLB(img.src, img.alt));
+      });
+
+      lightbox.addEventListener('click', closeLB);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLB();
+      });
     });
   </script>
 </body>
