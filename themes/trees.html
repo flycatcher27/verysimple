@@ -12,22 +12,47 @@
 
 <main class="wrap">
   <div class="grid cols-3">
-    <figure class="card"><img src="../media/photography/Trees/2012_Nov_1-035.jpg" alt=""><div class="body muted">2012_Nov_1-035</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013-Dec_1-125_try4.jpg" alt=""><div class="body muted">2013-Dec_1-125_try4</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Dec-1-130_try3.jpg" alt=""><div class="body muted">2013_Dec-1-130_try3</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Dec-1-135.jpg" alt=""><div class="body muted">2013_Dec-1-135</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-050.jpg" alt=""><div class="body muted">2013_Feb_1-050</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-059.jpg" alt=""><div class="body muted">2013_Feb_1-059</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-064.jpg" alt=""><div class="body muted">2013_Feb_1-064</div></figure>
+    <figure class="card"><img src="../media/photography/Trees/2012_Nov_1-035.jpg" alt="2012_Nov_1-035"><div class="body muted">2012_Nov_1-035</div></figure>
+    <figure class="card"><img src="../media/photography/Trees/2013-Dec_1-125_try4.jpg" alt="2013-Dec_1-125_try4"><div class="body muted">2013-Dec_1-125_try4</div></figure>
+    <figure class="card"><img src="../media/photography/Trees/2013_Dec-1-130_try3.jpg" alt="2013_Dec-1-130_try3"><div class="body muted">2013_Dec-1-130_try3</div></figure>
+    <figure class="card"><img src="../media/photography/Trees/2013_Dec-1-135.jpg" alt="2013_Dec-1-135"><div class="body muted">2013_Dec-1-135</div></figure>
+    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-050.jpg" alt="2013_Feb_1-050"><div class="body muted">2013_Feb_1-050</div></figure>
+    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-059.jpg" alt="2013_Feb_1-059"><div class="body muted">2013_Feb_1-059</div></figure>
+    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-064.jpg" alt="2013_Feb_1-064"><div class="body muted">2013_Feb_1-064</div></figure>
   </div>
 </main>
 
 <footer class="wrap">© <span id="y"></span> Arvind</footer>
 
+<!-- Lightbox -->
+<div id="lightbox" aria-hidden="true">
+  <img src="" alt="enlarged">
+  <button id="closeBtn">× Close</button>
+</div>
+
 <script>
+  // Year + back behavior
   document.getElementById('y').textContent = new Date().getFullYear();
-  window.addEventListener('keydown', e => { if(e.key==='Escape') history.back(); });
+  window.addEventListener('keydown', e => { if(e.key==='Escape'){ history.back(); }});
   document.getElementById('backBtn').addEventListener('click', ()=>history.back());
+
+  // Lightbox
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('img');
+  const closeBtn = document.getElementById('closeBtn');
+  function openLB(src, alt){ lb.style.display='flex'; lbImg.src=src; lbImg.alt=alt||''; document.body.classList.add('lb-open'); }
+  function closeLB(){ lb.style.display='none'; lbImg.src=''; document.body.classList.remove('lb-open'); }
+
+  document.querySelectorAll('figure img').forEach(img=>{
+    img.addEventListener('click',()=>openLB(img.src,img.alt));
+  });
+  closeBtn.addEventListener('click',closeLB);
+  lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
+  window.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      // If lightbox is open, close it; else go back
+      if(lb.style.display==='flex') closeLB(); else history.back();
+    }
+  });
 </script>
 </body></html>
-

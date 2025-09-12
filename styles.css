@@ -17,3 +17,10 @@ h1{font-size:24px;margin:0 0 6px}.muted{color:var(--muted)}
 .breadcrumb a{color:#ccc}
 h2{margin:0 0 8px}
 section{padding:18px 0;border-top:1px solid var(--line)}
+
+/* --- Lightbox (shared) --- */
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:9999;flex-direction:column;padding:2vh}
+#lightbox img{width:auto!important;height:auto!important;max-width:90vw;max-height:85vh;object-fit:contain;border-radius:10px;box-shadow:0 0 20px #000}
+#lightbox button{margin-top:10px;background:#222;color:#eee;border:1px solid #555;border-radius:6px;padding:6px 12px;font-size:14px;cursor:pointer}
+#lightbox button:hover{background:#333}
+.lb-open{overflow:hidden}

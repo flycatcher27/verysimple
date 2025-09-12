@@ -12,15 +12,38 @@
 
 <main class="wrap">
   <div class="grid cols-3">
-    <figure class="card"><img src="../media/photography/Landscapes/2013_Mar-1-070_working-2.jpg" alt=""><div class="body muted">2013_Mar-1-070_working-2</div></figure>
+    <figure class="card"><img src="../media/photography/Landscapes/2013_Mar-1-070_working-2.jpg" alt="2013_Mar-1-070_working-2"><div class="body muted">2013_Mar-1-070_working-2</div></figure>
   </div>
 </main>
 
 <footer class="wrap">© <span id="y"></span> Arvind</footer>
 
+<!-- Lightbox -->
+<div id="lightbox" aria-hidden="true">
+  <img src="" alt="enlarged">
+  <button id="closeBtn">× Close</button>
+</div>
+
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
-  window.addEventListener('keydown', e => { if(e.key==='Escape') history.back(); });
+  window.addEventListener('keydown', e => { if(e.key==='Escape'){ history.back(); }});
   document.getElementById('backBtn').addEventListener('click', ()=>history.back());
+
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('img');
+  const closeBtn = document.getElementById('closeBtn');
+  function openLB(src, alt){ lb.style.display='flex'; lbImg.src=src; lbImg.alt=alt||''; document.body.classList.add('lb-open'); }
+  function closeLB(){ lb.style.display='none'; lbImg.src=''; document.body.classList.remove('lb-open'); }
+
+  document.querySelectorAll('figure img').forEach(img=>{
+    img.addEventListener('click',()=>openLB(img.src,img.alt));
+  });
+  closeBtn.addEventListener('click',closeLB);
+  lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
+  window.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      if(lb.style.display==='flex') closeLB(); else history.back();
+    }
+  });
 </script>
 </body></html>
