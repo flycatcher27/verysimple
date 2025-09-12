@@ -4,31 +4,50 @@
 <link rel="stylesheet" href="../styles.css">
 </head><body>
 <header class="wrap">
-  <div class="breadcrumb"><a href="../index.html">Home</a> › <span>Landscapes</span></div>
-  <h1>Landscapes</h1>
-  <button id="backBtn" class="pill">← Back</button>
-  <p class="muted">Wide views and quiet places.</p>
+<div class="breadcrumb"><a href="../index.html">Home</a> › <span>Landscapes</span></div>
+<h1>Landscapes</h1>
+<button id="backBtn" class="pill">← Back</button>
+<p class="muted">Updated 2025-09-12</p>
 </header>
-
 <main class="wrap">
-  <div class="grid cols-3">
-    <figure class="card"><img src="../media/photography/Landscapes/2013_Mar-1-070_working-2.jpg" alt="2013_Mar-1-070_working-2"><div class="body muted">2013_Mar-1-070_working-2</div></figure>
-  </div>
-</main>
-
+<div class="grid cols-3">
+<figure class="card"><img src="../media/photography/Landscapes/1-070-1.jpg" alt="1-070-1.jpg"><div class="body muted">1-070-1.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2013-Feb_1-059.jpg" alt="2013-Feb_1-059.jpg"><div class="body muted">2013-Feb_1-059.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2013-Nov-1-122.jpg" alt="2013-Nov-1-122.jpg"><div class="body muted">2013-Nov-1-122.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2013_Feb_1-050.jpg" alt="2013_Feb_1-050.jpg"><div class="body muted">2013_Feb_1-050.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2013_Feb_1-052_edit.jpg" alt="2013_Feb_1-052_edit.jpg"><div class="body muted">2013_Feb_1-052_edit.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2013_July-1-106.jpg" alt="2013_July-1-106.jpg"><div class="body muted">2013_July-1-106.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2013_Mar-1-070_working.jpg" alt="2013_Mar-1-070_working.jpg"><div class="body muted">2013_Mar-1-070_working.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2013_Sep-1-120_edit.jpg" alt="2013_Sep-1-120_edit.jpg"><div class="body muted">2013_Sep-1-120_edit.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2014_Jan-1-150.jpg" alt="2014_Jan-1-150.jpg"><div class="body muted">2014_Jan-1-150.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2015_Nov-1-238.jpg" alt="2015_Nov-1-238.jpg"><div class="body muted">2015_Nov-1-238.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2016_Aug-1-252.jpg" alt="2016_Aug-1-252.jpg"><div class="body muted">2016_Aug-1-252.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2016_Aug-1-253.jpg" alt="2016_Aug-1-253.jpg"><div class="body muted">2016_Aug-1-253.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2016_Dec-1-267.jpg" alt="2016_Dec-1-267.jpg"><div class="body muted">2016_Dec-1-267.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2016_Dec-1-271.jpg" alt="2016_Dec-1-271.jpg"><div class="body muted">2016_Dec-1-271.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/2023_picture_005.jpg" alt="2023_picture_005.jpg"><div class="body muted">2023_picture_005.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/paths_crossed_2013-Dec_1-125_try5.jpg" alt="paths_crossed_2013-Dec_1-125_try5.jpg"><div class="body muted">paths_crossed_2013-Dec_1-125_try5.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Landscapes/pictures005.jpg" alt="pictures005.jpg"><div class="body muted">pictures005.jpg</div></figure>
+</div></main>
 <footer class="wrap">© <span id="y"></span> Arvind</footer>
 
-<!-- Lightbox -->
 <div id="lightbox" aria-hidden="true">
   <img src="" alt="enlarged">
   <button id="closeBtn">× Close</button>
 </div>
-
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
-  window.addEventListener('keydown', e => { if(e.key==='Escape'){ history.back(); }});
-  document.getElementById('backBtn').addEventListener('click', ()=>history.back());
 
+  // Back behavior
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (lb.style.display === 'flex') closeLB();
+      else history.back();
+    }
+  });
+  document.getElementById('backBtn').addEventListener('click', () => history.back());
+
+  // Lightbox
   const lb = document.getElementById('lightbox');
   const lbImg = lb.querySelector('img');
   const closeBtn = document.getElementById('closeBtn');
@@ -40,10 +59,5 @@
   });
   closeBtn.addEventListener('click',closeLB);
   lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
-  window.addEventListener('keydown',e=>{
-    if(e.key==='Escape'){
-      if(lb.style.display==='flex') closeLB(); else history.back();
-    }
-  });
 </script>
 </body></html>

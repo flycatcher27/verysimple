@@ -4,37 +4,41 @@
 <link rel="stylesheet" href="../styles.css">
 </head><body>
 <header class="wrap">
-  <div class="breadcrumb"><a href="../index.html">Home</a> › <span>Trees</span></div>
-  <h1>Trees</h1>
-  <button id="backBtn" class="pill">← Back</button>
-  <p class="muted">A selection from the Trees series.</p>
+<div class="breadcrumb"><a href="../index.html">Home</a> › <span>Trees</span></div>
+<h1>Trees</h1>
+<button id="backBtn" class="pill">← Back</button>
+<p class="muted">Updated 2025-09-12</p>
 </header>
-
 <main class="wrap">
-  <div class="grid cols-3">
-    <figure class="card"><img src="../media/photography/Trees/2012_Nov_1-035.jpg" alt="2012_Nov_1-035"><div class="body muted">2012_Nov_1-035</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013-Dec_1-125_try4.jpg" alt="2013-Dec_1-125_try4"><div class="body muted">2013-Dec_1-125_try4</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Dec-1-130_try3.jpg" alt="2013_Dec-1-130_try3"><div class="body muted">2013_Dec-1-130_try3</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Dec-1-135.jpg" alt="2013_Dec-1-135"><div class="body muted">2013_Dec-1-135</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-050.jpg" alt="2013_Feb_1-050"><div class="body muted">2013_Feb_1-050</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-059.jpg" alt="2013_Feb_1-059"><div class="body muted">2013_Feb_1-059</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-064.jpg" alt="2013_Feb_1-064"><div class="body muted">2013_Feb_1-064</div></figure>
-  </div>
-</main>
-
+<div class="grid cols-3">
+<figure class="card"><img src="../media/photography/Trees/2013-Dec_1-125_try4.jpg" alt="2013-Dec_1-125_try4.jpg"><div class="body muted">2013-Dec_1-125_try4.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Trees/2013_Dec-1-130_try3.jpg" alt="2013_Dec-1-130_try3.jpg"><div class="body muted">2013_Dec-1-130_try3.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Trees/2013_Dec-1-135.jpg" alt="2013_Dec-1-135.jpg"><div class="body muted">2013_Dec-1-135.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Trees/2014_Jan-1-140_try4.jpg" alt="2014_Jan-1-140_try4.jpg"><div class="body muted">2014_Jan-1-140_try4.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Trees/2014_Jan-1-151_try3.jpg" alt="2014_Jan-1-151_try3.jpg"><div class="body muted">2014_Jan-1-151_try3.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Trees/2014_Jan-1-219_take1.jpg" alt="2014_Jan-1-219_take1.jpg"><div class="body muted">2014_Jan-1-219_take1.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Trees/2023_picture_019.jpg" alt="2023_picture_019.jpg"><div class="body muted">2023_picture_019.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Trees/2025_picture_001.jpg" alt="2025_picture_001.jpg"><div class="body muted">2025_picture_001.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Trees/pictures003.jpg" alt="pictures003.jpg"><div class="body muted">pictures003.jpg</div></figure>
+<figure class="card"><img src="../media/photography/Trees/pictures005_take2.jpg" alt="pictures005_take2.jpg"><div class="body muted">pictures005_take2.jpg</div></figure>
+</div></main>
 <footer class="wrap">© <span id="y"></span> Arvind</footer>
 
-<!-- Lightbox -->
 <div id="lightbox" aria-hidden="true">
   <img src="" alt="enlarged">
   <button id="closeBtn">× Close</button>
 </div>
-
 <script>
-  // Year + back behavior
   document.getElementById('y').textContent = new Date().getFullYear();
-  window.addEventListener('keydown', e => { if(e.key==='Escape'){ history.back(); }});
-  document.getElementById('backBtn').addEventListener('click', ()=>history.back());
+
+  // Back behavior
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (lb.style.display === 'flex') closeLB();
+      else history.back();
+    }
+  });
+  document.getElementById('backBtn').addEventListener('click', () => history.back());
 
   // Lightbox
   const lb = document.getElementById('lightbox');
@@ -48,11 +52,5 @@
   });
   closeBtn.addEventListener('click',closeLB);
   lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
-  window.addEventListener('keydown',e=>{
-    if(e.key==='Escape'){
-      // If lightbox is open, close it; else go back
-      if(lb.style.display==='flex') closeLB(); else history.back();
-    }
-  });
 </script>
 </body></html>

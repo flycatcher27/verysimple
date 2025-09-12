@@ -4,34 +4,44 @@
 <link rel="stylesheet" href="../styles.css">
 </head><body>
 <header class="wrap">
-  <div class="breadcrumb"><a href="../index.html">Home</a> › <span>CityLife</span></div>
-  <h1>CityLife</h1>
-  <button id="backBtn" class="pill">← Back</button>
-  <p class="muted">Urban moments and textures.</p>
+<div class="breadcrumb"><a href="../index.html">Home</a> › <span>CityLife</span></div>
+<h1>CityLife</h1>
+<button id="backBtn" class="pill">← Back</button>
+<p class="muted">Updated 2025-09-12</p>
 </header>
-
 <main class="wrap">
-  <div class="grid cols-3">
-    <figure class="card"><img src="../media/photography/CityLife/2012_Nov_1-039_72dpi.jpg" alt="2012_Nov_1-039"><div class="body muted">2012_Nov_1-039</div></figure>
-    <figure class="card"><img src="../media/photography/CityLife/2012_Nov_1-041_72dpi.jpg" alt="2012_Nov_1-041"><div class="body muted">2012_Nov_1-041</div></figure>
-    <figure class="card"><img src="../media/photography/CityLife/2013_Feb-1-065-2.jpg" alt="2013_Feb-1-065-2"><div class="body muted">2013_Feb-1-065-2</div></figure>
-    <figure class="card"><img src="../media/photography/CityLife/2013_Mar-1-075.jpg" alt="2013_Mar-1-075"><div class="body muted">2013_Mar-1-075</div></figure>
-  </div>
-</main>
-
+<div class="grid cols-3">
+<figure class="card"><img src="../media/photography/CityLife/2012_Nov_1-032%20%283%29.jpg" alt="2012_Nov_1-032 (3).jpg"><div class="body muted">2012_Nov_1-032 (3).jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/2012_Nov_1-039_72dpi.jpg" alt="2012_Nov_1-039_72dpi.jpg"><div class="body muted">2012_Nov_1-039_72dpi.jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/2012_Nov_1-041_72dpi.jpg" alt="2012_Nov_1-041_72dpi.jpg"><div class="body muted">2012_Nov_1-041_72dpi.jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/2013_Feb-1-065-2.jpg" alt="2013_Feb-1-065-2.jpg"><div class="body muted">2013_Feb-1-065-2.jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/2013_Feb_1-064.jpg" alt="2013_Feb_1-064.jpg"><div class="body muted">2013_Feb_1-064.jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/2013_July-1-105.jpg" alt="2013_July-1-105.jpg"><div class="body muted">2013_July-1-105.jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/2013_July-1-108.jpg" alt="2013_July-1-108.jpg"><div class="body muted">2013_July-1-108.jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/2013_Mar-1-075.jpg" alt="2013_Mar-1-075.jpg"><div class="body muted">2013_Mar-1-075.jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/2016_Apr-1-241.jpg" alt="2016_Apr-1-241.jpg"><div class="body muted">2016_Apr-1-241.jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/2016_Dec-1-341.jpg" alt="2016_Dec-1-341.jpg"><div class="body muted">2016_Dec-1-341.jpg</div></figure>
+<figure class="card"><img src="../media/photography/CityLife/img20210131_12451765_DxO_grad_filter.jpg" alt="img20210131_12451765_DxO_grad_filter.jpg"><div class="body muted">img20210131_12451765_DxO_grad_filter.jpg</div></figure>
+</div></main>
 <footer class="wrap">© <span id="y"></span> Arvind</footer>
 
-<!-- Lightbox -->
 <div id="lightbox" aria-hidden="true">
   <img src="" alt="enlarged">
   <button id="closeBtn">× Close</button>
 </div>
-
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
-  window.addEventListener('keydown', e => { if(e.key==='Escape'){ history.back(); }});
-  document.getElementById('backBtn').addEventListener('click', ()=>history.back());
 
+  // Back behavior
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (lb.style.display === 'flex') closeLB();
+      else history.back();
+    }
+  });
+  document.getElementById('backBtn').addEventListener('click', () => history.back());
+
+  // Lightbox
   const lb = document.getElementById('lightbox');
   const lbImg = lb.querySelector('img');
   const closeBtn = document.getElementById('closeBtn');
@@ -43,10 +53,5 @@
   });
   closeBtn.addEventListener('click',closeLB);
   lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
-  window.addEventListener('keydown',e=>{
-    if(e.key==='Escape'){
-      if(lb.style.display==='flex') closeLB(); else history.back();
-    }
-  });
 </script>
 </body></html>
