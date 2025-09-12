@@ -6,6 +6,7 @@
 <header class="wrap">
   <div class="breadcrumb"><a href="../index.html">Home</a> › <span>CityLife</span></div>
   <h1>CityLife</h1>
+  <button id="backBtn" class="pill">← Back</button>
   <p class="muted">Urban moments and textures.</p>
 </header>
 
@@ -19,5 +20,10 @@
 </main>
 
 <footer class="wrap">© <span id="y"></span> Arvind</footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  window.addEventListener('keydown', e => { if(e.key==='Escape') history.back(); });
+  document.getElementById('backBtn').addEventListener('click', ()=>history.back());
+</script>
 </body></html>
