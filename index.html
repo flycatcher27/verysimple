@@ -1,157 +1,38 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arvind — Photography • Natural History • Trekking</title>
-  <meta name="description" content="A super-fast, no-JS personal site for 4×5 photography, natural history notes, and trekking."/>
-  <!-- Performance: system font stack, minimal CSS, no JS -->
-  <style>
-    :root {
-      --bg: #0b0b0b; --fg: #f2f2f2; --muted:#a8a8a8; --line:#1f1f1f; --link:#9fd3ff;
-      --max: 1000px; --pad: 14px; --radius: 12px;
-    }
-    html { box-sizing: border-box; }
-    *, *:before, *:after { box-sizing: inherit; }
-    body { margin:0; font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--fg); }
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header { border-bottom:1px solid var(--line); }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 20px var(--pad); }
-    .brand { display:flex; align-items:center; gap:12px; }
-    .brand-badge{ width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,#6ee7ff,#7c3aed); }
-    nav { position: sticky; top: 0; background: rgba(11,11,11,.9); backdrop-filter: blur(4px); border-bottom:1px solid var(--line); z-index:10; }
-    .tabs { display:flex; gap:8px; overflow:auto; padding: 8px var(--pad); }
-    .tab { padding:6px 10px; border:1px solid var(--line); border-radius:9px; color:#ddd; white-space:nowrap; }
-    .tab:hover { background:#151515; }
-    .hero { padding: 28px var(--pad) 8px; }
-    h1 { font-size: clamp(22px,3.6vw,30px); margin:0; }
-    p.lead { color: var(--muted); max-width: 60ch; margin: 8px 0 0; }
-    section { padding: 26px var(--pad); border-top:1px solid var(--line); }
-    section h2 { font-size: 18px; margin: 0 0 12px; }
-    .grid { display:grid; gap:12px; }
-    @media (min-width: 640px){ .grid.cols-2{ grid-template-columns: repeat(2,1fr);} }
-    @media (min-width: 900px){ .grid.cols-3{ grid-template-columns: repeat(3,1fr);} }
-    .card { border:1px solid var(--line); border-radius: var(--radius); padding:12px; background:#0f0f0f; }
-    .muted { color: var(--muted); }
-    figure { margin:0; }
-    img { display:block; width:100%; height: auto; border-radius:10px; border:1px solid var(--line); background:#111; }
-    .note { font-size: 14px; color: var(--muted); margin-top:6px; }
-    .list { list-style: disc; padding-left:18px; }
-    footer { border-top:1px solid var(--line); padding: 18px var(--pad) 28px; color:var(--muted); }
-    .pill { display:inline-block; font-size:12px; padding:3px 8px; border:1px solid var(--line); border-radius:999px; color:#bbb; }
-    .row { display:flex; gap:10px; flex-wrap:wrap; }
-    .kicker { font-size:12px; color:#bbb; margin-bottom:6px; }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap brand">
-      <div class="brand-badge" aria-hidden="true"></div>
-      <div>
-        <div class="kicker">Arvind</div>
-        <h1>Photography • Natural History • Trekking</h1>
-        <p class="lead">A fast, no‑JavaScript site. Photos (4×5), bird‑sound notes, and trek logs.</p>
-      </div>
-    </div>
-  </header>
+<!-- CityLife -->
+<figure class="card">
+  <img loading="lazy"
+       src="media/photography/CityLife/2012_Nov_1-039_72dpi.jpg"
+       alt="City Life — 2012 Nov 1-039">
+  <figcaption class="note">City Life series</figcaption>
+</figure>
 
-  <nav>
-    <div class="tabs wrap">
-      <a class="tab" href="#photography">Photography</a>
-      <a class="tab" href="#natural-history">Natural History</a>
-      <a class="tab" href="#trekking">Trekking</a>
-      <span class="tab" style="margin-left:auto; opacity:.8">Updated: 12 Sep 2025</span>
-    </div>
-  </nav>
+<figure class="card">
+  <img loading="lazy"
+       src="media/photography/CityLife/2012_Nov_1-041_72dpi.jpg"
+       alt="City Life — 2012 Nov 1-041">
+  <figcaption class="note">City Life series</figcaption>
+</figure>
 
-  <main>
-    <!-- Photography -->
-    <section id="photography" class="wrap">
-      <h2>Photography (4×5)</h2>
-      <p class="muted">Large‑format images, process notes, and links to working PDFs.</p>
-      <div class="grid cols-3">
-        <!-- Replace src paths with your OneDrive-synced paths (kept identical in your hosting repo) -->
-        <figure class="card">
-          <img loading="lazy" src="media/photography/urban-trees-01.jpg" alt="Urban trees, morning light">
-          <figcaption class="note">HP5+, HC‑110 (F) 19 °C × 11 min; Epson scan.</figcaption>
-        </figure>
-        <figure class="card">
-          <img loading="lazy" src="media/photography/urban-trees-02.jpg" alt="Bark texture closeup">
-          <figcaption class="note">Schneider 65 mm; limited movements; contact‑print.</figcaption>
-        </figure>
-        <figure class="card">
-          <img loading="lazy" src="media/photography/urban-trees-03.jpg" alt="Roots & pavement">
-          <figcaption class="note">Notes in PDF below.</figcaption>
-        </figure>
-      </div>
-      <div class="row" style="margin-top:12px;">
-        <a class="pill" href="docs/Photography.pdf">Working Notes (PDF)</a>
-      </div>
-    </section>
+<!-- Landscapes -->
+<figure class="card">
+  <img loading="lazy"
+       src="media/photography/Landscapes/2013_Mar-1-070_working-2.jpg"
+       alt="Landscape — 2013 Mar-1-070">
+  <figcaption class="note">Landscapes</figcaption>
+</figure>
 
-    <!-- Natural History -->
-    <section id="natural-history" class="wrap">
-      <h2>Natural History (Bird Sound)</h2>
-      <p class="muted">Field recordings, checklists, and workflow notes.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <strong>White‑cheeked Barbet — dawn, Bengaluru</strong>
-          <div class="note">Parabolic mic → light high‑pass & de‑noise.</div>
-          <audio controls preload="none" style="width:100%; margin-top:8px;">
-            <source src="media/audio/barbet-dawn.mp3" type="audio/mpeg"/>
-          </audio>
-        </div>
-        <div class="card">
-          <strong>Purple‑rumped Sunbird — terrace chatter</strong>
-          <div class="note">Handheld recorder; light compression for audibility.</div>
-          <audio controls preload="none" style="width:100%; margin-top:8px;">
-            <source src="media/audio/sunbird-chatter.mp3" type="audio/mpeg"/>
-          </audio>
-        </div>
-      </div>
-      <div class="row" style="margin-top:12px;">
-        <a class="pill" href="https://ebird.org/checklist/S160573844" target="_blank" rel="noreferrer">Saul Kere — 31 species</a>
-        <a class="pill" href="https://ebird.org/checklist/S167006555" target="_blank" rel="noreferrer">Havelock — 40 species</a>
-        <a class="pill" href="docs/Nature%20Sounds.pdf">Nature Sounds (PDF)</a>
-      </div>
-    </section>
+<!-- Trees -->
+<figure class="card">
+  <img loading="lazy"
+       src="media/photography/Trees/2013_Dec-1-135.jpg"
+       alt="Trees — 2013 Dec-1-135">
+  <figcaption class="note">Trees series</figcaption>
+</figure>
 
-    <!-- Trekking -->
-    <section id="trekking" class="wrap">
-      <h2>Trekking</h2>
-      <p class="muted">Routes, packing lists, and wish‑list trails.</p>
-      <div class="grid cols-3">
-        <article class="card">
-          <h3 style="margin:0 0 4px; font-size:16px;">Ajodhya Hills — quick nature weekend</h3>
-          <div class="note">18 km • 650 m gain • Sept 2024</div>
-          <p class="note">Rolling granite hills; mixed deciduous forest; great for beginners with birding stops.</p>
-          <p><a href="https://www.natureinfocus.in/travel/guide/ajodhya-hills" target="_blank" rel="noreferrer">Guide →</a></p>
-        </article>
-        <article class="card">
-          <h3 style="margin:0 0 4px; font-size:16px;">Singalila — red panda country</h3>
-          <div class="note">42 km • 2100 m gain • Oct 2024</div>
-          <p class="note">Cloud forests and Kanchenjunga views. Prime habitat for Scaly Laughingthrush.</p>
-          <p><a href="https://www.deccanherald.com/lifestyle/travel/finding-firefoxes-in-singalila-3238212" target="_blank" rel="noreferrer">Article →</a></p>
-        </article>
-        <article class="card">
-          <h3 style="margin:0 0 4px; font-size:16px;">Packing List — 2‑day trek</h3>
-          <ul class="list muted" style="margin:6px 0 0;">
-            <li>Shell + mid‑layer + base</li>
-            <li>2 L hydration + electrolytes</li>
-            <li>Headlamp, power bank, whistle</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="wrap">
-    <div>© <span id="y"></span> Arvind</div>
-    <div class="note">Built as a single static HTML file. No frameworks. No JavaScript (except this year stamp).</div>
-  </footer>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
-</body>
-</html>
+<figure class="card">
+  <img loading="lazy"
+       src="media/photography/Trees/2013_Dec-1-130_try3.jpg"
+       alt="Trees — 2013 Dec-1-130">
+  <figcaption class="note">Trees series</figcaption>
+</figure>
 
