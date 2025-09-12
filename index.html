@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arvind — Photography • Natural History • Trekking</title>
-  <meta name="description" content="A super-fast, no-JS personal site for 4×5 photography, natural history notes, and trekking.">
+  <meta name="description" content="Ultra-fast, no-JS site for 4×5 photography, natural history notes, and trekking.">
   <style>
     :root { --bg:#0b0b0b; --fg:#f2f2f2; --muted:#a8a8a8; --line:#1f1f1f; --link:#9fd3ff; --max:1000px; --pad:14px; --radius:12px; }
     html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
@@ -26,38 +26,45 @@
     .list{list-style:disc;padding-left:18px}
     footer{border-top:1px solid var(--line);padding:18px var(--pad) 28px;color:var(--muted)}
 
-    /* Lightbox styles */
+    /* Lightbox */
     #lightbox {
       position: fixed; inset: 0;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.92);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 9999;
+      flex-direction: column;
       padding: 2vh;
     }
     #lightbox img {
-      max-width: 90vw;
-      max-height: 90vh;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #000;
-    }
-    body.lb-open { overflow: hidden; }
-    /* Fix lightbox aspect ratio */
-    #lightbox img{
       width:auto !important;
       height:auto !important;
       max-width:90vw;
-      max-height:90vh;
+      max-height:85vh;
       object-fit:contain;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #000;
     }
+    #lightbox button {
+      margin-top: 10px;
+      background: #222;
+      color: #eee;
+      border: 1px solid #555;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    #lightbox button:hover { background:#333; }
+    body.lb-open { overflow:hidden; }
   </style>
 </head>
 <body>
   <header class="wrap">
     <div class="muted">Arvind</div>
     <h1>Photography • Natural History • Trekking</h1>
-    <p class="muted">Ultra-fast static site. No JS.</p>
+    <p class="muted">Ultra-fast static site with lightbox.</p>
   </header>
 
   <nav>
@@ -65,120 +72,58 @@
       <a class="tab" href="#photography">Photography</a>
       <a class="tab" href="#natural-history">Natural History</a>
       <a class="tab" href="#trekking">Trekking</a>
-      <span class="tab" style="margin-left:auto;opacity:.8">Updated: 12 Sep 2025</span>
     </div>
   </nav>
 
   <main>
-    <!-- PHOTOGRAPHY -->
     <section id="photography" class="wrap">
       <h2>Photography (4×5)</h2>
-      <p class="muted">Large-format images and notes.</p>
       <div class="grid cols-3">
-
-        <!-- CityLife -->
-        <figure class="card">
-          <img loading="lazy"
-               src="media/photography/CityLife/2012_Nov_1-039_72dpi.jpg"
-               alt="City Life — 2012 Nov 1-039">
-          <figcaption class="note">City Life series</figcaption>
-        </figure>
-
-        <figure class="card">
-          <img loading="lazy"
-               src="media/photography/CityLife/2012_Nov_1-041_72dpi.jpg"
-               alt="City Life — 2012 Nov 1-041">
-          <figcaption class="note">City Life series</figcaption>
-        </figure>
-
-        <!-- Landscapes -->
-        <figure class="card">
-          <img loading="lazy"
-               src="media/photography/Landscapes/2013_Mar-1-070_working-2.jpg"
-               alt="Landscape — 2013 Mar-1-070">
-          <figcaption class="note">Landscapes</figcaption>
-        </figure>
-
-        <!-- Trees -->
-        <figure class="card">
-          <img loading="lazy"
-               src="media/photography/Trees/2013_Dec-1-135.jpg"
-               alt="Trees — 2013 Dec-1-135">
-          <figcaption class="note">Trees series</figcaption>
-        </figure>
-
-        <figure class="card">
-          <img loading="lazy"
-               src="media/photography/Trees/2013_Dec-1-130_try3.jpg"
-               alt="Trees — 2013 Dec-1-130">
-          <figcaption class="note">Trees series</figcaption>
-        </figure>
-
+        <figure class="card"><img src="media/photography/CityLife/2012_Nov_1-039_72dpi.jpg" alt="City Life 039"><figcaption class="note">City Life</figcaption></figure>
+        <figure class="card"><img src="media/photography/CityLife/2012_Nov_1-041_72dpi.jpg" alt="City Life 041"><figcaption class="note">City Life</figcaption></figure>
+        <figure class="card"><img src="media/photography/Landscapes/2013_Mar-1-070_working-2.jpg" alt="Landscape 070"><figcaption class="note">Landscapes</figcaption></figure>
+        <figure class="card"><img src="media/photography/Trees/2013_Dec-1-135.jpg" alt="Tree 135"><figcaption class="note">Trees</figcaption></figure>
+        <figure class="card"><img src="media/photography/Trees/2013_Dec-1-130_try3.jpg" alt="Tree 130"><figcaption class="note">Trees</figcaption></figure>
       </div>
-      <p style="margin-top:10px">
-        <a class="pill" href="docs/Photography.pdf">Working Notes (PDF)</a>
-      </p>
+      <p><a class="pill" href="docs/Photography.pdf">Working Notes (PDF)</a></p>
     </section>
 
-    <!-- NATURAL HISTORY -->
     <section id="natural-history" class="wrap">
-      <h2>Natural History (Bird Sound)</h2>
-      <p class="muted">Field notes, checklists, and recordings.</p>
+      <h2>Natural History</h2>
       <p><a class="pill" href="docs/Nature%20Sounds.pdf">Nature Sounds (PDF)</a></p>
     </section>
 
-    <!-- TREKKING -->
     <section id="trekking" class="wrap">
       <h2>Trekking</h2>
-      <p class="muted">Routes, packing lists, and references.</p>
       <ul class="list muted">
-        <li><a href="https://www.natureinfocus.in/travel/guide/ajodhya-hills" target="_blank" rel="noreferrer">Ajodhya Hills — quick nature weekend</a></li>
-        <li><a href="https://www.deccanherald.com/lifestyle/travel/finding-firefoxes-in-singalila-3238212" target="_blank" rel="noreferrer">Singalila — red panda country</a></li>
+        <li><a href="https://www.natureinfocus.in/travel/guide/ajodhya-hills" target="_blank">Ajodhya Hills</a></li>
+        <li><a href="https://www.deccanherald.com/lifestyle/travel/finding-firefoxes-in-singalila-3238212" target="_blank">Singalila</a></li>
       </ul>
     </section>
   </main>
 
-  <footer class="wrap">
-    © <span id="y"></span> Arvind
-    <div class="muted">Built as a single static HTML file. Lightbox enabled.</div>
-  </footer>
+  <footer class="wrap">© <span id="y"></span> Arvind</footer>
 
-  <!-- Lightbox container -->
-  <div id="lightbox" aria-hidden="true">
-    <img src="" alt="Enlarged photo">
+  <div id="lightbox">
+    <img src="" alt="enlarged">
+    <button id="closeBtn">× Close</button>
   </div>
 
-  <!-- Scripts -->
   <script>
-    // stamp year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('y').textContent=new Date().getFullYear();
+    const lb=document.getElementById('lightbox');
+    const lbImg=lb.querySelector('img');
+    const closeBtn=document.getElementById('closeBtn');
 
-    // Lightbox wiring after DOM is ready
-    document.addEventListener('DOMContentLoaded', () => {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = lightbox.querySelector('img');
+    function openLB(src,alt){lb.style.display='flex';lbImg.src=src;lbImg.alt=alt||'';document.body.classList.add('lb-open');}
+    function closeLB(){lb.style.display='none';lbImg.src='';document.body.classList.remove('lb-open');}
 
-      function openLB(src, alt) {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = src;
-        lightboxImg.alt = alt || '';
-        document.body.classList.add('lb-open');
-      }
-      function closeLB() {
-        lightbox.style.display = 'none';
-        lightboxImg.src = '';
-        document.body.classList.remove('lb-open');
-      }
-
-      document.querySelectorAll('figure img').forEach(img => {
-        img.addEventListener('click', () => openLB(img.src, img.alt));
-      });
-
-      lightbox.addEventListener('click', closeLB);
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLB();
-      });
+    document.querySelectorAll('figure img').forEach(img=>{
+      img.addEventListener('click',()=>openLB(img.src,img.alt));
     });
+    closeBtn.addEventListener('click',closeLB);
+    lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
+    window.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();});
   </script>
 </body>
 </html>
