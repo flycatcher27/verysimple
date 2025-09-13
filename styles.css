@@ -40,3 +40,18 @@ hr.sep{border:none; border-top:1px solid var(--line); margin:20px 0}
 #lightbox .close{position:fixed; top:14px; right:14px; background:#1b1c1e; color:#eee; border:1px solid #4b4f56; border-radius:8px; padding:6px 10px; cursor:pointer}
 .lb-open{overflow:hidden}
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
+
+/* --- Uniform tile grid (no captions) --- */
+.card.tile{border:0; background:transparent; padding:0}
+.tile .frame{
+  position:relative; width:100%; aspect-ratio:3/2; /* change to 4/3 or 1/1 if you prefer */
+  overflow:hidden; border:1px solid var(--line); border-radius:var(--r); background:#111;
+}
+.tile .frame img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;
+  cursor:pointer; display:block;
+}
+/* Optional hover lift (subtle) */
+@media (hover:hover){
+  .tile .frame:hover{transform:translateY(-1px)}
+}

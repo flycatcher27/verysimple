@@ -49,6 +49,7 @@ def rel_url(p: Path) -> str:
     # Encode each path segment
     return "/".join(quote(seg) for seg in rp.split("/"))
 
+
 def write_theme_page(theme: str, images: list[Path]) -> None:
     slug = slugify(theme)
     out_path = REPO / "themes" / f"{slug}.html"
@@ -59,67 +60,53 @@ def write_theme_page(theme: str, images: list[Path]) -> None:
     rows.append('<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">')
     rows.append(f"<title>{escape(theme)} — Arvind</title>")
     rows.append('<link rel="stylesheet" href="../styles.css">')
+    rows.append(f'<meta name="description" content="{escape(theme)} — photography by Arvind.">')
     rows.append("</head><body>")
 
     rows.append('<header class="wrap">')
-    rows.append(f'<div class="breadcrumb"><a href="../index.html">Home</a> › <span>{escape(theme)}</span></div>')
+    rows.append(f'<div class="crumbs"><a href="../index.html">Home</a> › <span>{escape(theme)}</span></div>')
     rows.append(f"<h1>{escape(theme)}</h1>")
-    rows.append('<button id="backBtn" class="pill">← Back</button>')
-    rows.append(f'<p class="muted">Updated {datetime.now().strftime("%Y-%m-%d")}</p>')
     rows.append("</header>")
 
     rows.append('<main class="wrap">')
     rows.append(f'<div class="{GRID_CLASS}">')
     if images:
         for img in images:
-            filename = img.name
             url = rel_url(img)
             rows.append(
-                f'<figure class="card"><img src="../{escape(url)}" alt="{escape(filename)}">'
-                f'<div class="body muted">{escape(filename)}</div></figure>'
+                f'<figure class="card tile"><div class="frame">'
+                f'<img src="../{escape(url)}" alt="">'
+                f'</div></figure>'
             )
     else:
         rows.append('<p class="muted">No images found for this theme.</p>')
     rows.append("</div></main>")
 
-    rows.append('<footer class="wrap">© <span id="y"></span> Arvind</footer>')
+    rows.append('<footer class="site wrap">© <span id="y"></span> Arvind</footer>')
 
-    # Shared lightbox overlay
     rows.append("""
 <div id="lightbox" aria-hidden="true">
   <img src="" alt="enlarged">
-  <button id="closeBtn">× Close</button>
+  <button class="close" id="closeBtn">× Close</button>
 </div>
 <script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Back behavior
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      if (lb.style.display === 'flex') closeLB();
-      else history.back();
-    }
-  });
-  document.getElementById('backBtn').addEventListener('click', () => history.back());
-
-  // Lightbox
-  const lb = document.getElementById('lightbox');
-  const lbImg = lb.querySelector('img');
-  const closeBtn = document.getElementById('closeBtn');
-  function openLB(src, alt){ lb.style.display='flex'; lbImg.src=src; lbImg.alt=alt||''; document.body.classList.add('lb-open'); }
-  function closeLB(){ lb.style.display='none'; lbImg.src=''; document.body.classList.remove('lb-open'); }
-
-  document.querySelectorAll('figure img').forEach(img=>{
-    img.addEventListener('click',()=>openLB(img.src,img.alt));
-  });
-  closeBtn.addEventListener('click',closeLB);
+  document.getElementById('y').textContent=new Date().getFullYear();
+  const lb=document.getElementById('lightbox'), im=lb.querySelector('img'), btn=document.getElementById('closeBtn');
+  function openLB(src,alt){ lb.style.display='flex'; im.src=src; im.alt=alt||''; document.body.classList.add('lb-open'); }
+  function closeLB(){ lb.style.display='none'; im.src=''; document.body.classList.remove('lb-open'); }
+  document.querySelectorAll('.tile img').forEach(el=>el.addEventListener('click',()=>openLB(el.src,el.alt)));
   lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
+  btn.addEventListener('click',closeLB);
+  window.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){ if(lb.style.display==='flex') closeLB(); else history.back(); }
+  });
 </script>
 </body></html>
 """)
 
     out_path.write_text("\n".join(rows), encoding="utf-8")
     print(f"[write] {out_path}")
+
 
 def update_index_covers_and_counts(index_path: Path, theme_map: dict[str, list[Path]]) -> None:
     """

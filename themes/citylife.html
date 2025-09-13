@@ -2,56 +2,42 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CityLife — Arvind</title>
 <link rel="stylesheet" href="../styles.css">
+<meta name="description" content="CityLife — photography by Arvind.">
 </head><body>
 <header class="wrap">
-<div class="breadcrumb"><a href="../index.html">Home</a> › <span>CityLife</span></div>
+<div class="crumbs"><a href="../index.html">Home</a> › <span>CityLife</span></div>
 <h1>CityLife</h1>
-<button id="backBtn" class="pill">← Back</button>
-<p class="muted">Updated 2025-09-12</p>
 </header>
 <main class="wrap">
 <div class="grid cols-3">
-<figure class="card"><img src="../media/photography/CityLife/2012_Nov_1-032%20%283%29.jpg" alt="2012_Nov_1-032 (3).jpg"><div class="body muted">2012_Nov_1-032 (3).jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/2012_Nov_1-039_72dpi.jpg" alt="2012_Nov_1-039_72dpi.jpg"><div class="body muted">2012_Nov_1-039_72dpi.jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/2012_Nov_1-041_72dpi.jpg" alt="2012_Nov_1-041_72dpi.jpg"><div class="body muted">2012_Nov_1-041_72dpi.jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/2013_Feb-1-065-2.jpg" alt="2013_Feb-1-065-2.jpg"><div class="body muted">2013_Feb-1-065-2.jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/2013_Feb_1-064.jpg" alt="2013_Feb_1-064.jpg"><div class="body muted">2013_Feb_1-064.jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/2013_July-1-105.jpg" alt="2013_July-1-105.jpg"><div class="body muted">2013_July-1-105.jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/2013_July-1-108.jpg" alt="2013_July-1-108.jpg"><div class="body muted">2013_July-1-108.jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/2013_Mar-1-075.jpg" alt="2013_Mar-1-075.jpg"><div class="body muted">2013_Mar-1-075.jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/2016_Apr-1-241.jpg" alt="2016_Apr-1-241.jpg"><div class="body muted">2016_Apr-1-241.jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/2016_Dec-1-341.jpg" alt="2016_Dec-1-341.jpg"><div class="body muted">2016_Dec-1-341.jpg</div></figure>
-<figure class="card"><img src="../media/photography/CityLife/img20210131_12451765_DxO_grad_filter.jpg" alt="img20210131_12451765_DxO_grad_filter.jpg"><div class="body muted">img20210131_12451765_DxO_grad_filter.jpg</div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2012_Nov_1-032%20%283%29.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2012_Nov_1-039_72dpi.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2012_Nov_1-041_72dpi.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2013_Feb-1-065-2.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2013_Feb_1-064.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2013_July-1-105.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2013_July-1-108.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2013_Mar-1-075.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2016_Apr-1-241.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/2016_Dec-1-341.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/CityLife/img20210131_12451765_DxO_grad_filter.jpg" alt=""></div></figure>
 </div></main>
-<footer class="wrap">© <span id="y"></span> Arvind</footer>
+<footer class="site wrap">© <span id="y"></span> Arvind</footer>
 
 <div id="lightbox" aria-hidden="true">
   <img src="" alt="enlarged">
-  <button id="closeBtn">× Close</button>
+  <button class="close" id="closeBtn">× Close</button>
 </div>
 <script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Back behavior
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      if (lb.style.display === 'flex') closeLB();
-      else history.back();
-    }
-  });
-  document.getElementById('backBtn').addEventListener('click', () => history.back());
-
-  // Lightbox
-  const lb = document.getElementById('lightbox');
-  const lbImg = lb.querySelector('img');
-  const closeBtn = document.getElementById('closeBtn');
-  function openLB(src, alt){ lb.style.display='flex'; lbImg.src=src; lbImg.alt=alt||''; document.body.classList.add('lb-open'); }
-  function closeLB(){ lb.style.display='none'; lbImg.src=''; document.body.classList.remove('lb-open'); }
-
-  document.querySelectorAll('figure img').forEach(img=>{
-    img.addEventListener('click',()=>openLB(img.src,img.alt));
-  });
-  closeBtn.addEventListener('click',closeLB);
+  document.getElementById('y').textContent=new Date().getFullYear();
+  const lb=document.getElementById('lightbox'), im=lb.querySelector('img'), btn=document.getElementById('closeBtn');
+  function openLB(src,alt){ lb.style.display='flex'; im.src=src; im.alt=alt||''; document.body.classList.add('lb-open'); }
+  function closeLB(){ lb.style.display='none'; im.src=''; document.body.classList.remove('lb-open'); }
+  document.querySelectorAll('.tile img').forEach(el=>el.addEventListener('click',()=>openLB(el.src,el.alt)));
   lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
+  btn.addEventListener('click',closeLB);
+  window.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){ if(lb.style.display==='flex') closeLB(); else history.back(); }
+  });
 </script>
 </body></html>

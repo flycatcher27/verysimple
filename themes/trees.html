@@ -2,46 +2,41 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trees — Arvind</title>
 <link rel="stylesheet" href="../styles.css">
-<meta name="description" content="Trees — large-format photography by Arvind.">
+<meta name="description" content="Trees — photography by Arvind.">
 </head><body>
 <header class="wrap">
-  <div class="crumbs"><a href="../index.html">Home</a> › <span>Trees</span></div>
-  <h1>Trees</h1>
-  <p class="kicker">A selection from the Trees series.</p>
+<div class="crumbs"><a href="../index.html">Home</a> › <span>Trees</span></div>
+<h1>Trees</h1>
 </header>
-
 <main class="wrap">
-  <div class="grid cols-3">
-    <figure class="card"><img src="../media/photography/Trees/2012_Nov_1-035.jpg" alt="2012_Nov_1-035"><div class="body muted">2012_Nov_1-035</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013-Dec_1-125_try4.jpg" alt="2013-Dec_1-125_try4"><div class="body muted">2013-Dec_1-125_try4</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Dec-1-130_try3.jpg" alt="2013_Dec-1-130_try3"><div class="body muted">2013_Dec-1-130_try3</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Dec-1-135.jpg" alt="2013_Dec-1-135"><div class="body muted">2013_Dec-1-135</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-050.jpg" alt="2013_Feb_1-050"><div class="body muted">2013_Feb_1-050</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-059.jpg" alt="2013_Feb_1-059"><div class="body muted">2013_Feb_1-059</div></figure>
-    <figure class="card"><img src="../media/photography/Trees/2013_Feb_1-064.jpg" alt="2013_Feb_1-064"><div class="body muted">2013_Feb_1-064</div></figure>
-  </div>
-</main>
+<div class="grid cols-3">
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/2013-Dec_1-125_try4.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/2013_Dec-1-130_try3.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/2013_Dec-1-135.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/2014_Jan-1-140_try4.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/2014_Jan-1-151_try3.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/2014_Jan-1-219_take1.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/2023_picture_019.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/2025_picture_001.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/pictures003.jpg" alt=""></div></figure>
+<figure class="card tile"><div class="frame"><img src="../media/photography/Trees/pictures005_take2.jpg" alt=""></div></figure>
+</div></main>
+<footer class="site wrap">© <span id="y"></span> Arvind</footer>
 
-<footer class="site wrap">© <span id="y"></span> Arvind • <a href="../articles/index.html">Articles</a></footer>
-
-<!-- Lightbox -->
 <div id="lightbox" aria-hidden="true">
   <img src="" alt="enlarged">
   <button class="close" id="closeBtn">× Close</button>
 </div>
-
 <script>
   document.getElementById('y').textContent=new Date().getFullYear();
-  const lb=document.getElementById('lightbox'), img=lb.querySelector('img'), btn=document.getElementById('closeBtn');
-  function openLB(src,alt){ lb.style.display='flex'; img.src=src; img.alt=alt||''; document.body.classList.add('lb-open'); }
-  function closeLB(){ lb.style.display='none'; img.src=''; document.body.classList.remove('lb-open'); }
-  document.querySelectorAll('figure img').forEach(el=>el.addEventListener('click',()=>openLB(el.src,el.alt)));
+  const lb=document.getElementById('lightbox'), im=lb.querySelector('img'), btn=document.getElementById('closeBtn');
+  function openLB(src,alt){ lb.style.display='flex'; im.src=src; im.alt=alt||''; document.body.classList.add('lb-open'); }
+  function closeLB(){ lb.style.display='none'; im.src=''; document.body.classList.remove('lb-open'); }
+  document.querySelectorAll('.tile img').forEach(el=>el.addEventListener('click',()=>openLB(el.src,el.alt)));
   lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
   btn.addEventListener('click',closeLB);
   window.addEventListener('keydown',e=>{
     if(e.key==='Escape'){ if(lb.style.display==='flex') closeLB(); else history.back(); }
-    if(e.key==='ArrowRight'){ const a=[...document.querySelectorAll('figure img')]; const i=a.findIndex(x=>x.src===img.src); if(i>-1 && i<a.length-1) openLB(a[i+1].src,a[i+1].alt); }
-    if(e.key==='ArrowLeft'){ const a=[...document.querySelectorAll('figure img')]; const i=a.findIndex(x=>x.src===img.src); if(i>0) openLB(a[i-1].src,a[i-1].alt); }
   });
 </script>
 </body></html>
