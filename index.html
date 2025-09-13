@@ -1,44 +1,45 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Arvind — Themes</title>
+<title>Arvind — Photography</title>
 <link rel="stylesheet" href="styles.css">
+<meta name="description" content="Minimalist photography portfolio by Arvind — Trees, CityLife, Landscapes.">
 </head><body>
-<header class="wrap">
-  <div class="muted">Arvind</div>
-  <h1>Photography Themes</h1>
-  <p class="muted">Pick a theme to view its gallery.</p>
+<header class="site wrap">
+  <div class="brand">
+    <h1>Arvind</h1><span class="sub">Photography</span>
+  </div>
+  <nav class="nav" aria-label="Main">
+    <a href="index.html" aria-current="page">Themes</a>
+    <a href="articles/index.html">Articles</a>
+  </nav>
 </header>
 
 <main class="wrap">
+  <p class="lead">A small, curated portfolio across three themes. Click a theme to enter the gallery.</p>
   <section>
     <div class="grid cols-3">
-      <!-- Trees -->
       <a class="card" href="themes/trees.html">
-        <img src="media/photography/Trees/2013_Dec-1-135.jpg" alt="Trees cover" loading="lazy">
-        <div class="body"><strong>Trees</strong><div class="muted">7 photos</div></div>
+        <img src="media/photography/Trees/2013_Dec-1-135.jpg" alt="Trees cover">
+        <div class="body"><div class="title">Trees</div><div class="kicker">Studies of texture and form</div></div>
       </a>
-
-      <!-- CityLife -->
       <a class="card" href="themes/citylife.html">
-        <img src="media/photography/CityLife/2012_Nov_1-039_72dpi.jpg" alt="CityLife cover" loading="lazy">
-        <div class="body"><strong>CityLife</strong><div class="muted">4 photos</div></div>
+        <img src="media/photography/CityLife/2012_Nov_1-039_72dpi.jpg" alt="CityLife cover">
+        <div class="body"><div class="title">CityLife</div><div class="kicker">Rhythms of the street</div></div>
       </a>
-
-      <!-- Landscapes -->
       <a class="card" href="themes/landscapes.html">
-        <img src="media/photography/Landscapes/2013_Mar-1-070_working-2.jpg" alt="Landscapes cover" loading="lazy">
-        <div class="body"><strong>Landscapes</strong><div class="muted">1 photo</div></div>
+        <img src="media/photography/Landscapes/2013_Mar-1-070_working-2.jpg" alt="Landscapes cover">
+        <div class="body"><div class="title">Landscapes</div><div class="kicker">Quiet horizons</div></div>
       </a>
     </div>
   </section>
 
   <section>
-    <h2>Notes & References</h2>
+    <h2 style="margin:0 0 8px">Notes & PDFs</h2>
     <p><a class="pill" href="docs/Photography.pdf">Photography Notes (PDF)</a>
        <a class="pill" href="docs/Nature%20Sounds.pdf">Nature Sounds (PDF)</a></p>
   </section>
 </main>
 
-<footer class="wrap">© <span id="y"></span> Arvind</footer>
+<footer class="site wrap">© <span id="y"></span> Arvind • <a href="articles/index.html">Articles</a></footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body></html>

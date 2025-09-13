@@ -1,26 +1,42 @@
-:root{--bg:#0b0b0b;--fg:#f2f2f2;--muted:#a8a8a8;--line:#1f1f1f;--link:#9fd3ff;--max:1000px;--pad:14px;--r:12px}
-html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
-body{margin:0;font:16px/1.5 system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--fg)}
-a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:var(--max);margin:0 auto;padding:20px var(--pad)}
-header,footer{border-bottom:1px solid var(--line)}
-footer{border-top:1px solid var(--line);border-bottom:none;color:var(--muted)}
-h1{font-size:24px;margin:0 0 6px}.muted{color:var(--muted)}
-.grid{display:grid;gap:12px}
-@media(min-width:640px){.cols-3{grid-template-columns:repeat(3,1fr)}.cols-2{grid-template-columns:repeat(2,1fr)}}
-.card{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#101010}
-.card img{display:block;width:100%;height:auto}
-.card .body{padding:10px}
-.pill{display:inline-block;font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:#bbb}
-.nav{display:flex;gap:8px;align-items:center}
-.breadcrumb{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:14px}
-.breadcrumb a{color:#ccc}
-h2{margin:0 0 8px}
-section{padding:18px 0;border-top:1px solid var(--line)}
-
-/* --- Lightbox (shared) --- */
-#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:9999;flex-direction:column;padding:2vh}
-#lightbox img{width:auto!important;height:auto!important;max-width:90vw;max-height:85vh;object-fit:contain;border-radius:10px;box-shadow:0 0 20px #000}
-#lightbox button{margin-top:10px;background:#222;color:#eee;border:1px solid #555;border-radius:6px;padding:6px 12px;font-size:14px;cursor:pointer}
-#lightbox button:hover{background:#333}
+:root{
+  --bg:#0f0f10; --panel:#141516; --line:#1d1f22;
+  --fg:#f2f2f2; --muted:#a7abb1; --link:#9fd3ff;
+  --max: 1040px; --pad: 16px; --r: 14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font: 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  background:var(--bg); color:var(--fg);
+}
+a{color:var(--link); text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid #6cc2ff; outline-offset:2px}
+.wrap{max-width:var(--max); margin:0 auto; padding:22px var(--pad)}
+header.site{border-bottom:1px solid var(--line); padding-bottom:10px}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand h1{font-weight:650; font-size:20px; margin:0}
+.brand .sub{color:var(--muted); font-size:14px}
+.nav{display:flex; gap:10px; margin-top:10px}
+.nav a{padding:6px 10px; border:1px solid var(--line); border-radius:999px; color:#d7d9dd}
+.nav a[aria-current="page"]{background:var(--panel)}
+footer.site{border-top:1px solid var(--line); color:var(--muted)}
+.grid{display:grid; gap:14px}
+@media(min-width:640px){.cols-3{grid-template-columns:repeat(3,1fr)} .cols-2{grid-template-columns:repeat(2,1fr)}}
+.card{border:1px solid var(--line); border-radius:var(--r); overflow:hidden; background:var(--panel)}
+.card .body{padding:12px}
+.card .title{font-weight:600}
+.card img{display:block; width:100%; height:auto}
+.kicker{color:var(--muted); font-size:13px}
+.lead{color:var(--muted); max-width:68ch}
+section{padding:20px 0; border-top:1px solid var(--line)}
+.crumbs{color:var(--muted); font-size:14px}
+.crumbs a{color:#d7d9dd}
+.pill{display:inline-block; font-size:12px; padding:3px 9px; border:1px solid var(--line); border-radius:999px; color:#cfd3d9}
+.muted{color:var(--muted)}
+hr.sep{border:none; border-top:1px solid var(--line); margin:20px 0}
+#lightbox{position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:9999; background:rgba(0,0,0,.92); padding:2vh}
+#lightbox img{width:auto!important; height:auto!important; max-width:90vw; max-height:85vh; object-fit:contain; border-radius:10px; box-shadow:0 0 20px #000}
+#lightbox .close{position:fixed; top:14px; right:14px; background:#1b1c1e; color:#eee; border:1px solid #4b4f56; border-radius:8px; padding:6px 10px; cursor:pointer}
 .lb-open{overflow:hidden}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
